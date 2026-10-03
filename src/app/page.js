@@ -23,69 +23,71 @@ export default function ProposalPage() {
   return (
     <main className="min-h-screen overflow-hidden bg-gradient-to-br from-pink-100 via-rose-50 to-purple-100 text-gray-800">
 
-      {/* ================= FLOATING HEARTS ================= */}
+      {/* ================= ভাসমান হার্ট ================= */}
 
       <div className="pointer-events-none fixed inset-0 overflow-hidden">
 
-        <span className="absolute left-[8%] top-[12%] text-2xl opacity-60 animate-bounce">
+        <span className="absolute left-[8%] top-[12%] animate-bounce text-2xl opacity-60">
           ❤️
         </span>
 
-        <span className="absolute right-[10%] top-[20%] text-xl opacity-60 animate-pulse">
+        <span className="absolute right-[10%] top-[20%] animate-pulse text-xl opacity-60">
           💕
         </span>
 
-        <span className="absolute bottom-[18%] left-[12%] text-xl opacity-50 animate-pulse">
+        <span className="absolute bottom-[18%] left-[12%] animate-pulse text-xl opacity-50">
           💗
         </span>
 
-        <span className="absolute bottom-[12%] right-[12%] text-2xl opacity-60 animate-bounce">
+        <span className="absolute bottom-[12%] right-[12%] animate-bounce text-2xl opacity-60">
           💕
         </span>
 
-        <span className="absolute left-[45%] top-[8%] text-lg opacity-40 animate-pulse">
+        <span className="absolute left-[45%] top-[8%] animate-pulse text-lg opacity-40">
           ✨
         </span>
 
       </div>
 
-      {/* ================= STEP 0 ================= */}
+      {/* =====================================================
+          প্রথম পেজ
+      ===================================================== */}
 
       {step === 0 && (
         <section className="flex min-h-screen items-center justify-center px-5">
 
           <div className="w-full max-w-xl rounded-[2rem] bg-white/85 p-8 text-center shadow-2xl backdrop-blur-md sm:p-12">
 
-            <div className="mb-6 text-6xl animate-pulse">
+            <div className="mb-6 animate-pulse text-6xl">
               💌
             </div>
 
             <p className="mb-3 text-sm font-bold uppercase tracking-[4px] text-pink-500">
-              A Little Surprise
+              একটি ছোট্ট সারপ্রাইজ
             </p>
 
             <h1 className="mb-5 text-4xl font-bold text-gray-800 sm:text-5xl">
-              For My Favourite Person ❤️
+              আমার প্রিয় মানুষটির জন্য ❤️
             </h1>
 
             <p className="mb-8 text-base leading-8 text-gray-600 sm:text-lg">
-              I made something special for you.
+              তোমার জন্য ছোট্ট একটা জিনিস তৈরি করেছি।
               <br />
-              It will only take a few moments...
+              মাত্র কয়েকটা মুহূর্ত আমার সাথে থেকো...
               <br />
-              So please stay with me. 🥺💕
+              তারপর তোমাকে একটা কথা বলবো। 🥺💕
             </p>
 
             <button
               onClick={nextStep}
               className="btn h-14 w-full rounded-full border-0 bg-pink-500 text-white shadow-lg hover:bg-pink-600"
             >
-              Start Our Little Story
+              আমাদের গল্প শুরু করি
               <FaArrowRight />
             </button>
 
             <p className="mt-6 text-sm text-gray-400">
-              Made with lots of ❤️
+              অনেক ভালোবাসা দিয়ে তৈরি ❤️
             </p>
 
           </div>
@@ -93,27 +95,29 @@ export default function ProposalPage() {
         </section>
       )}
 
-      {/* ================= STEP 1 ================= */}
+      {/* =====================================================
+          দ্বিতীয় পেজ
+      ===================================================== */}
 
       {step === 1 && (
         <section className="flex min-h-screen items-center justify-center px-5">
 
           <div className="w-full max-w-xl rounded-[2rem] bg-white/90 p-8 text-center shadow-2xl backdrop-blur-md sm:p-12">
 
-            <FaHeart className="mx-auto mb-6 text-5xl text-pink-500 animate-pulse" />
+            <FaHeart className="mx-auto mb-6 animate-pulse text-5xl text-pink-500" />
 
             <p className="mb-3 text-sm font-bold uppercase tracking-widest text-pink-400">
-              Question 01
+              প্রশ্ন ০১
             </p>
 
             <h2 className="mb-5 text-3xl font-bold sm:text-4xl">
-              Do you know something?
+              তুমি কি একটা কথা জানো?
             </h2>
 
             <p className="mb-8 text-lg leading-8 text-gray-600">
-              You have become one of the most
+              তুমি আমার জীবনের
               <br />
-              special people in my life. ❤️
+              সবচেয়ে বিশেষ মানুষগুলোর একজন হয়ে গেছো। ❤️
             </p>
 
             <div className="grid gap-4">
@@ -122,21 +126,21 @@ export default function ProposalPage() {
                 onClick={nextStep}
                 className="btn h-14 rounded-2xl border-0 bg-pink-100 text-pink-600 hover:bg-pink-200"
               >
-                I Know 🥰
+                জানি 🥰
               </button>
 
               <button
                 onClick={nextStep}
                 className="btn h-14 rounded-2xl border-0 bg-purple-100 text-purple-600 hover:bg-purple-200"
               >
-                Tell Me 🤭
+                বলো তো 🤭
               </button>
 
               <button
                 onClick={nextStep}
                 className="btn h-14 rounded-2xl border-0 bg-rose-100 text-rose-600 hover:bg-rose-200"
               >
-                Really? ❤️
+                সত্যি? ❤️
               </button>
 
             </div>
@@ -146,7 +150,9 @@ export default function ProposalPage() {
         </section>
       )}
 
-      {/* ================= STEP 2 ================= */}
+      {/* =====================================================
+          তৃতীয় পেজ
+      ===================================================== */}
 
       {step === 2 && (
         <section className="flex min-h-screen items-center justify-center px-5">
@@ -156,31 +162,33 @@ export default function ProposalPage() {
             <FaStar className="mx-auto mb-6 text-5xl text-yellow-400" />
 
             <p className="mb-3 text-sm font-bold uppercase tracking-widest text-pink-400">
-              Something From My Heart
+              আমার মনের কথা
             </p>
 
             <h2 className="mb-6 text-3xl font-bold sm:text-4xl">
-              Let me tell you...
+              তাহলে শোনো...
             </h2>
 
             <p className="mb-8 text-lg leading-9 text-gray-600">
-              Every conversation with you,
+              তোমার সাথে প্রতিটা কথা,
               <br />
-              every smile,
+              তোমার প্রতিটা হাসি,
               <br />
-              every little moment...
+              তোমার সাথে কাটানো প্রতিটা মুহূর্ত...
               <br />
-              somehow became precious to me. 💕
+              আমার কাছে অনেক মূল্যবান হয়ে গেছে। 💕
             </p>
 
             <div className="rounded-3xl bg-gradient-to-r from-pink-100 to-purple-100 p-6">
 
               <p className="font-medium leading-8 text-gray-700">
-                You make ordinary moments feel special.
+                তুমি সাধারণ মুহূর্তগুলোকে
                 <br />
-                And honestly...
+                অসাধারণ করে দিতে পারো।
                 <br />
-                I don't want to lose that feeling. ❤️
+                আর সত্যি বলতে...
+                <br />
+                আমি এই অনুভূতিটা হারাতে চাই না। ❤️
               </p>
 
             </div>
@@ -189,7 +197,7 @@ export default function ProposalPage() {
               onClick={nextStep}
               className="btn mt-8 rounded-full border-0 bg-pink-500 px-8 text-white hover:bg-pink-600"
             >
-              Continue ❤️
+              সামনে এগিয়ে চলো ❤️
               <FaArrowRight />
             </button>
 
@@ -198,7 +206,9 @@ export default function ProposalPage() {
         </section>
       )}
 
-      {/* ================= STEP 3 ================= */}
+      {/* =====================================================
+          চতুর্থ পেজ
+      ===================================================== */}
 
       {step === 3 && (
         <section className="flex min-h-screen items-center justify-center px-5">
@@ -208,24 +218,26 @@ export default function ProposalPage() {
             <FaGift className="mx-auto mb-6 text-5xl text-pink-500" />
 
             <p className="mb-3 text-sm font-bold uppercase tracking-widest text-pink-400">
-              One Important Question
+              একটি গুরুত্বপূর্ণ কথা
             </p>
 
             <h2 className="mb-6 text-3xl font-bold sm:text-4xl">
-              Are you ready?
+              তুমি কি প্রস্তুত?
             </h2>
 
             <p className="mb-8 text-lg leading-8 text-gray-600">
-              Because there is something
+              কারণ অনেকদিন ধরে
               <br />
-              I have wanted to say for a while... 🥺
+              মনের মধ্যে একটা কথা জমিয়ে রেখেছি...
+              <br />
+              আজ সেটা তোমাকে বলতে চাই। 🥺❤️
             </p>
 
             <button
               onClick={nextStep}
               className="btn h-14 w-full rounded-full border-0 bg-pink-500 text-white shadow-lg hover:bg-pink-600"
             >
-              Tell Me ❤️
+              বলো ❤️
               <FaArrowRight />
             </button>
 
@@ -234,7 +246,9 @@ export default function ProposalPage() {
         </section>
       )}
 
-      {/* ================= STEP 4 ================= */}
+      {/* =====================================================
+          মূল PROPOSE পেজ
+      ===================================================== */}
 
       {step === 4 && (
         <section className="flex min-h-screen items-center justify-center px-5">
@@ -246,21 +260,21 @@ export default function ProposalPage() {
             </div>
 
             <p className="mb-3 text-sm font-bold uppercase tracking-[4px] text-pink-500">
-              From My Heart
+              আমার মনের গভীর থেকে
             </p>
 
             <h1 className="mb-6 text-4xl font-bold text-gray-800 sm:text-6xl">
-              Will You Be Mine? 💍
+              তুমি কি আমার হবে? 💍
             </h1>
 
             <p className="mx-auto mb-8 max-w-lg text-lg leading-9 text-gray-600">
-              Not just for today.
+              শুধু আজকের জন্য নয়।
               <br />
-              Not just for a moment.
+              শুধু কিছু মুহূর্তের জন্য নয়।
               <br />
-              But for all the beautiful moments
+              আমাদের সামনে থাকা
               <br />
-              waiting for us. ❤️
+              সুন্দর সব মুহূর্তের জন্য। ❤️
             </p>
 
             <div className="grid gap-4">
@@ -269,21 +283,21 @@ export default function ProposalPage() {
                 onClick={nextStep}
                 className="btn h-16 rounded-2xl border-0 bg-pink-500 text-lg text-white shadow-lg hover:bg-pink-600"
               >
-                YES ❤️
+                হ্যাঁ ❤️
               </button>
 
               <button
                 onClick={nextStep}
                 className="btn h-16 rounded-2xl border-0 bg-rose-100 text-lg text-pink-600 hover:bg-rose-200"
               >
-                YES, OF COURSE 🥰
+                অবশ্যই হ্যাঁ 🥰
               </button>
 
               <button
                 onClick={nextStep}
                 className="btn h-14 rounded-2xl border-0 bg-purple-100 text-purple-600 hover:bg-purple-200"
               >
-                Let Me Think 🤭
+                একটু ভাবি 🤭
               </button>
 
             </div>
@@ -293,40 +307,47 @@ export default function ProposalPage() {
         </section>
       )}
 
-      {/* ================= FINAL PAGE ================= */}
+      {/* =====================================================
+          FINAL PAGE
+      ===================================================== */}
 
       {step === 5 && (
         <section className="min-h-screen px-5 py-12">
 
           <div className="mx-auto max-w-4xl">
 
-            {/* SUCCESS */}
+            {/* SUCCESS CARD */}
 
             <div className="rounded-[2rem] bg-white/90 p-8 text-center shadow-2xl backdrop-blur-md sm:p-12">
 
-              <FaRing className="mx-auto mb-6 text-6xl text-pink-500 animate-pulse" />
+              <FaRing className="mx-auto mb-6 animate-pulse text-6xl text-pink-500" />
 
               <p className="mb-3 text-sm font-bold uppercase tracking-[4px] text-pink-500">
-                My Favourite Answer
+                আমার সবচেয়ে প্রিয় উত্তর
               </p>
 
               <h1 className="mb-6 text-4xl font-bold text-pink-600 sm:text-6xl">
-                You Said YES! ❤️
+                তুমি হ্যাঁ বলেছো! ❤️
               </h1>
 
               <p className="mx-auto max-w-2xl text-lg leading-9 text-gray-600">
-                And just like that...
+                আর এই ছোট্ট একটা "হ্যাঁ"
                 <br />
-                you made my heart a little happier.
+                আমার পুরো পৃথিবীটাকে
                 <br />
-                I hope this is only the beginning
+                একটু বেশি সুন্দর করে দিলো। 🥰
                 <br />
-                of our beautiful story. 🥰
+                <br />
+                আশা করি এটাই আমাদের
+                <br />
+                সুন্দর গল্পের শুরু। ❤️
               </p>
 
             </div>
 
-            {/* ================= DUO PHOTO ================= */}
+            {/* =================================================
+                DUO PHOTO
+            ================================================= */}
 
             <div className="mt-8 rounded-[2rem] bg-white/90 p-6 shadow-2xl backdrop-blur-md sm:p-10">
 
@@ -335,16 +356,16 @@ export default function ProposalPage() {
                 <FaCamera className="mx-auto mb-3 text-3xl text-pink-500" />
 
                 <h2 className="text-3xl font-bold text-gray-800 sm:text-4xl">
-                  Our Little World ❤️
+                  আমাদের ছোট্ট পৃথিবী ❤️
                 </h2>
 
                 <p className="mt-2 text-gray-500">
-                  One picture. One beautiful memory. 💕
+                  একটি ছবি, একটি সুন্দর স্মৃতি। 💕
                 </p>
 
               </div>
 
-              {/* YOUR DUO PHOTO */}
+              {/* ================= আপনার দুজনের ছবি ================= */}
 
               <div className="mx-auto max-w-2xl overflow-hidden rounded-3xl bg-gradient-to-br from-pink-100 to-purple-100 p-3 shadow-xl">
 
@@ -352,7 +373,7 @@ export default function ProposalPage() {
 
                   <img
                     src="/images/us.jpg"
-                    alt="Me and My Favourite Person"
+                    alt="আমাদের দুজনের ছবি"
                     className="h-[420px] w-full object-cover transition duration-700 hover:scale-105 sm:h-[600px]"
                   />
 
@@ -361,11 +382,11 @@ export default function ProposalPage() {
                 <div className="py-5 text-center">
 
                   <p className="text-2xl font-bold text-pink-600">
-                    Me & You ❤️
+                    তুমি আর আমি ❤️
                   </p>
 
                   <p className="mt-2 text-sm text-gray-500">
-                    One heart, two people, countless memories. 🥰
+                    দুজন মানুষ, একটি সুন্দর গল্প। 🥰
                   </p>
 
                 </div>
@@ -374,45 +395,51 @@ export default function ProposalPage() {
 
             </div>
 
-            {/* ================= LOVE MESSAGE ================= */}
+            {/* =================================================
+                শেষ মেসেজ
+            ================================================= */}
 
             <div className="mt-8 rounded-[2rem] bg-gradient-to-br from-pink-500 to-purple-500 p-8 text-center text-white shadow-2xl sm:p-12">
 
               <FaRegHeart className="mx-auto mb-6 text-5xl" />
 
               <h2 className="mb-6 text-3xl font-bold sm:text-4xl">
-                My Promise To You
+                তোমার জন্য আমার প্রতিশ্রুতি
               </h2>
 
               <p className="mx-auto max-w-2xl text-base leading-9 text-white/90 sm:text-lg">
-                I cannot promise that every day will be perfect.
-                But I can promise that I will always value you,
-                respect you, support you, and cherish every beautiful
-                moment we get to share together.
+                আমি প্রতিশ্রুতি দিতে পারি না যে
+                আমাদের প্রতিটা দিন পারফেক্ট হবে।
+                <br />
+                কিন্তু আমি প্রতিশ্রুতি দিতে পারি,
+                তোমাকে সবসময় সম্মান করবো,
+                তোমার পাশে থাকার চেষ্টা করবো
+                এবং আমাদের প্রতিটা সুন্দর মুহূর্তকে
+                হৃদয়ে ধরে রাখবো। ❤️
               </p>
 
               <div className="my-8 h-px bg-white/30" />
 
               <p className="text-3xl font-bold">
-                You & Me ❤️
+                তুমি আর আমি ❤️
               </p>
 
               <p className="mt-3 text-white/70">
-                Maybe this is where our beautiful story begins...
+                হয়তো এখান থেকেই শুরু আমাদের সুন্দর গল্প...
               </p>
 
             </div>
 
-            {/* ================= FINAL HEART ================= */}
+            {/* ================= শেষ হার্ট ================= */}
 
             <div className="py-12 text-center">
 
-              <div className="mb-4 text-5xl animate-pulse">
+              <div className="mb-4 animate-pulse text-5xl">
                 ❤️
               </div>
 
               <p className="text-sm text-gray-400">
-                Made especially for you
+                শুধু তোমার জন্য তৈরি
               </p>
 
             </div>
