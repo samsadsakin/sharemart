@@ -1,435 +1,427 @@
+
 "use client";
 
-import Link from "next/link";
+import { useState } from "react";
+
 import {
-  FaBars,
-  FaSearch,
-  FaShoppingCart,
-  FaUser,
   FaHeart,
+  FaRegHeart,
+  FaArrowRight,
   FaStar,
-  FaTruck,
-  FaShieldAlt,
-  FaBolt,
+  FaCamera,
+  FaRing,
+  FaGift,
 } from "react-icons/fa";
 
-const categories = [
-  ["📱", "Mobile"],
-  ["💻", "Electronics"],
-  ["👕", "Fashion"],
-  ["💄", "Beauty"],
-  ["🏠", "Home"],
-  ["🛒", "Grocery"],
-  ["⚽", "Sports"],
-];
-
-const products = [
-  ["📱", "Redmi Note 13", 22999, 28999, 20, 4.5],
-  ["🎧", "TWS Wireless Earbuds", 1699, 1999, 15, 4.3],
-  ["⌚", "Smart Watch", 3749, 4999, 25, 4.6],
-  ["🔋", "Power Bank", 1399, 1999, 30, 4.4],
-  ["🎧", "Wireless Headphones", 2799, 3399, 18, 4.5],
-  ["📱", "Phone Case", 499, 640, 22, 4.2],
-];
-
-export default function HomePage() {
-  return (
-    <main className="min-h-screen bg-blue-50/50 pb-16 lg:pb-0">
-
-      {/* NAVBAR */}
-      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-blue-100">
-
-        <div className="navbar max-w-7xl mx-auto px-4">
-
-          <div className="dropdown lg:hidden">
-            <button className="btn btn-ghost btn-circle text-blue-600">
-              <FaBars />
-            </button>
-
-            <ul className="menu dropdown-content mt-3 w-52 rounded-xl bg-white shadow-lg">
-              {categories.map(([icon, name]) => (
-                <li key={name}>
-                  <Link href="#">
-                    {icon} {name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* LOGO */}
-          <Link href="/" className="text-2xl font-bold">
-            <span className="text-blue-600">Share</span>
-            <span className="text-orange-500">Mart</span>
-          </Link>
-
-          {/* SEARCH */}
-          <div className="hidden md:flex flex-1 max-w-xl mx-6">
-            <div className="join w-full">
-              <input
-                className="input input-bordered join-item w-full bg-blue-50/50 border-blue-100"
-                placeholder="Search products..."
-              />
-              <button className="btn join-item bg-blue-100 text-blue-600 border-blue-100 hover:bg-blue-200">
-                <FaSearch />
-              </button>
-            </div>
-          </div>
-
-          {/* ACTIONS */}
-          <div className="flex gap-1 ml-auto">
-
-            <Link
-              href="/login"
-              className="btn btn-ghost hidden sm:flex text-blue-600"
-            >
-              <FaUser /> Login
-            </Link>
-
-            <button className="btn btn-ghost btn-circle text-pink-500 hidden sm:flex">
-              <FaHeart />
-            </button>
-
-            <Link
-              href="/cart"
-              className="btn btn-ghost btn-circle text-orange-500"
-            >
-              <div className="indicator">
-                <FaShoppingCart />
-                <span className="badge badge-error badge-xs indicator-item">
-                  2
-                </span>
-              </div>
-            </Link>
-
-          </div>
-        </div>
-
-        {/* MOBILE SEARCH */}
-        <div className="md:hidden px-4 pb-3">
-          <div className="join w-full">
-            <input
-              className="input input-bordered join-item w-full bg-blue-50/50 border-blue-100"
-              placeholder="Search products..."
-            />
-            <button className="btn join-item bg-blue-100 text-blue-600 border-blue-100">
-              <FaSearch />
-            </button>
-          </div>
-        </div>
-
-        {/* MENU */}
-        <nav className="hidden lg:block border-t border-blue-50">
-          <div className="max-w-7xl mx-auto px-4 flex gap-8 h-11 items-center text-sm">
-            <Link className="text-blue-600 font-semibold" href="/">
-              Home
-            </Link>
-            <Link href="/products">All Products</Link>
-            <Link href="/flash-sale">Flash Sale</Link>
-            <Link href="/deals">Deals</Link>
-            <Link href="/contact">Contact</Link>
-          </div>
-        </nav>
-
-      </header>
-
-
-      {/* CONTENT */}
-      <div className="max-w-7xl mx-auto px-4 py-5">
-
-        {/* HERO */}
-        <section className="grid lg:grid-cols-4 gap-4">
-
-          {/* CATEGORIES */}
-          <aside className="hidden lg:block bg-white rounded-2xl border border-blue-100 overflow-hidden">
-
-            <div className="p-4 bg-blue-100 text-blue-700 font-semibold">
-              <FaBars className="inline mr-2" />
-              All Categories
-            </div>
-
-            <div className="p-2">
-              {categories.map(([icon, name]) => (
-                <Link
-                  key={name}
-                  href="#"
-                  className="flex justify-between p-3 rounded-xl hover:bg-blue-50 hover:text-blue-600"
-                >
-                  <span>{icon} {name}</span>
-                  <span>›</span>
-                </Link>
-              ))}
-            </div>
-
-          </aside>
-
-
-          {/* BANNER */}
-          <div className="lg:col-span-3">
-
-            <div className="min-h-[270px] rounded-2xl p-7 md:p-10
-                            bg-gradient-to-r from-blue-100 via-purple-50 to-orange-100
-                            flex items-center">
-
-              <div>
-
-                <span className="badge bg-orange-100 text-orange-600 border-orange-200">
-                  Special Offer
-                </span>
-
-                <h1 className="text-3xl md:text-5xl font-bold text-slate-700 mt-3">
-                  Big Shopping Sale
-                </h1>
-
-                <p className="text-slate-500 mt-3 max-w-md">
-                  Find your favorite products at amazing prices.
-                </p>
-
-                <button className="mt-5 px-6 py-3 rounded-xl
-                                   bg-orange-100 text-orange-600
-                                   border border-orange-200
-                                   hover:bg-orange-200 transition">
-                  Shop Now →
-                </button>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </section>
-
-
-        {/* FEATURES */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mt-4">
-
-          <Feature
-            icon={<FaTruck />}
-            title="Free Delivery"
-            color="bg-green-50 text-green-600"
-          />
-
-          <Feature
-            icon={<FaShieldAlt />}
-            title="Secure Payment"
-            color="bg-blue-50 text-blue-600"
-          />
-
-          <Feature
-            icon={<FaBolt />}
-            title="Fast Delivery"
-            color="bg-purple-50 text-purple-600"
-          />
-
-        </div>
-
-
-        {/* FLASH SALE */}
-        <section className="mt-8">
-
-          <Title icon={<FaBolt />} text="Flash Sale" />
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
-
-            {products.map((p, i) => (
-              <Product key={i} data={p} />
-            ))}
-
-          </div>
-
-        </section>
-
-
-        {/* CATEGORY */}
-        <section className="mt-8">
-
-          <Title text="Shop By Category" />
-
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-7 gap-3">
-
-            {categories.map(([icon, name], i) => {
-
-              const colors = [
-                "bg-blue-50 text-blue-600",
-                "bg-purple-50 text-purple-600",
-                "bg-pink-50 text-pink-600",
-                "bg-orange-50 text-orange-600",
-                "bg-green-50 text-green-600",
-                "bg-yellow-50 text-yellow-600",
-                "bg-cyan-50 text-cyan-600",
-              ];
-
-              return (
-                <Link
-                  href="#"
-                  key={name}
-                  className={`${colors[i]} rounded-2xl p-4 text-center hover:shadow-md transition`}
-                >
-                  <div className="text-3xl">{icon}</div>
-                  <p className="text-xs md:text-sm font-medium mt-2">
-                    {name}
-                  </p>
-                </Link>
-              );
-            })}
-
-          </div>
-
-        </section>
-
-
-        {/* BEST SELLING */}
-        <section className="mt-8">
-
-          <Title text="Best Selling" />
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
-
-            {[...products].reverse().map((p, i) => (
-              <Product key={i} data={p} />
-            ))}
-
-          </div>
-
-        </section>
-
-      </div>
-
-
-      {/* MOBILE NAV */}
-      <div className="fixed bottom-0 left-0 right-0 lg:hidden bg-white border-t border-blue-100 z-50">
-
-        <div className="grid grid-cols-5">
-
-          <Bottom icon={<FaSearch />} text="Home" />
-          <Bottom icon={<FaBars />} text="Category" />
-          <Bottom icon={<FaHeart />} text="Wishlist" />
-          <Bottom icon={<FaShoppingCart />} text="Cart" />
-          <Bottom icon={<FaUser />} text="Account" />
-
-        </div>
-
-      </div>
-
-    </main>
-  );
-}
-
-
-/* PRODUCT */
-
-function Product({ data }) {
-
-  const [icon, name, price, oldPrice, discount, rating] = data;
+export default function ProposalPage() {
+  const [step, setStep] = useState(0);
+
+  const nextStep = () => {
+    setStep((prev) => prev + 1);
+  };
 
   return (
-    <div className="bg-white rounded-2xl border border-blue-100 overflow-hidden
-                    hover:shadow-md hover:border-blue-200 transition">
+    <main className="min-h-screen overflow-hidden bg-gradient-to-br from-pink-100 via-rose-50 to-purple-100 text-gray-800">
 
-      <div className="relative h-28 md:h-36 bg-gradient-to-br from-blue-50 to-purple-50
-                      flex items-center justify-center">
+      {/* ================= FLOATING HEARTS ================= */}
 
-        <span className="text-5xl">{icon}</span>
+      <div className="pointer-events-none fixed inset-0 overflow-hidden">
 
-        <span className="absolute top-2 left-2 px-2 py-1 rounded-md
-                         bg-orange-100 text-orange-600 text-xs font-semibold">
-          -{discount}%
+        <span className="absolute left-[8%] top-[12%] text-2xl opacity-60 animate-bounce">
+          ❤️
         </span>
 
-        <button className="absolute top-2 right-2 w-7 h-7 rounded-full
-                           bg-pink-50 text-pink-500 flex items-center justify-center">
-          <FaHeart size={12} />
-        </button>
+        <span className="absolute right-[10%] top-[20%] text-xl opacity-60 animate-pulse">
+          💕
+        </span>
+
+        <span className="absolute bottom-[18%] left-[12%] text-xl opacity-50 animate-pulse">
+          💗
+        </span>
+
+        <span className="absolute bottom-[12%] right-[12%] text-2xl opacity-60 animate-bounce">
+          💕
+        </span>
+
+        <span className="absolute left-[45%] top-[8%] text-lg opacity-40 animate-pulse">
+          ✨
+        </span>
 
       </div>
 
-      <div className="p-3">
+      {/* ================= STEP 0 ================= */}
 
-        <h3 className="text-sm font-medium text-slate-700 line-clamp-2 min-h-10">
-          {name}
-        </h3>
+      {step === 0 && (
+        <section className="flex min-h-screen items-center justify-center px-5">
 
-        <div className="flex items-center gap-1 text-xs mt-2">
-          <FaStar className="text-yellow-400" />
-          <span className="text-slate-500">{rating}</span>
-          <span className="text-slate-400">(120 sold)</span>
-        </div>
+          <div className="w-full max-w-xl rounded-[2rem] bg-white/85 p-8 text-center shadow-2xl backdrop-blur-md sm:p-12">
 
-        <div className="mt-2">
-          <span className="font-bold text-blue-600">
-            ৳{price.toLocaleString()}
-          </span>
+            <div className="mb-6 text-6xl animate-pulse">
+              💌
+            </div>
 
-          <span className="text-xs text-slate-400 line-through ml-2">
-            ৳{oldPrice.toLocaleString()}
-          </span>
-        </div>
+            <p className="mb-3 text-sm font-bold uppercase tracking-[4px] text-pink-500">
+              A Little Surprise
+            </p>
 
-        <button className="w-full mt-3 py-2 rounded-lg
-                           bg-orange-50 text-orange-600
-                           border border-orange-100
-                           hover:bg-orange-100 transition text-sm font-medium">
-          <FaShoppingCart className="inline mr-1" />
-          Add to Cart
-        </button>
+            <h1 className="mb-5 text-4xl font-bold text-gray-800 sm:text-5xl">
+              For My Favourite Person ❤️
+            </h1>
 
-      </div>
+            <p className="mb-8 text-base leading-8 text-gray-600 sm:text-lg">
+              I made something special for you.
+              <br />
+              It will only take a few moments...
+              <br />
+              So please stay with me. 🥺💕
+            </p>
 
-    </div>
-  );
-}
+            <button
+              onClick={nextStep}
+              className="btn h-14 w-full rounded-full border-0 bg-pink-500 text-white shadow-lg hover:bg-pink-600"
+            >
+              Start Our Little Story
+              <FaArrowRight />
+            </button>
 
+            <p className="mt-6 text-sm text-gray-400">
+              Made with lots of ❤️
+            </p>
 
-/* FEATURE */
+          </div>
 
-function Feature({ icon, title, color }) {
-  return (
-    <div className="bg-white rounded-2xl border border-blue-100 p-4 flex items-center gap-3">
+        </section>
+      )}
 
-      <div className={`w-10 h-10 rounded-full flex items-center justify-center ${color}`}>
-        {icon}
-      </div>
+      {/* ================= STEP 1 ================= */}
 
-      <span className="text-sm font-medium text-slate-600">
-        {title}
-      </span>
+      {step === 1 && (
+        <section className="flex min-h-screen items-center justify-center px-5">
 
-    </div>
-  );
-}
+          <div className="w-full max-w-xl rounded-[2rem] bg-white/90 p-8 text-center shadow-2xl backdrop-blur-md sm:p-12">
 
+            <FaHeart className="mx-auto mb-6 text-5xl text-pink-500 animate-pulse" />
 
-/* TITLE */
+            <p className="mb-3 text-sm font-bold uppercase tracking-widest text-pink-400">
+              Question 01
+            </p>
 
-function Title({ icon, text }) {
-  return (
-    <div className="flex items-center justify-between mb-4">
+            <h2 className="mb-5 text-3xl font-bold sm:text-4xl">
+              Do you know something?
+            </h2>
 
-      <h2 className="text-xl md:text-2xl font-bold text-slate-700 flex items-center gap-2">
-        {icon && <span className="text-orange-500">{icon}</span>}
-        {text}
-      </h2>
+            <p className="mb-8 text-lg leading-8 text-gray-600">
+              You have become one of the most
+              <br />
+              special people in my life. ❤️
+            </p>
 
-      <Link
-        href="/products"
-        className="text-sm text-blue-600 hover:text-blue-700"
-      >
-        View All →
-      </Link>
+            <div className="grid gap-4">
 
-    </div>
-  );
-}
+              <button
+                onClick={nextStep}
+                className="btn h-14 rounded-2xl border-0 bg-pink-100 text-pink-600 hover:bg-pink-200"
+              >
+                I Know 🥰
+              </button>
 
+              <button
+                onClick={nextStep}
+                className="btn h-14 rounded-2xl border-0 bg-purple-100 text-purple-600 hover:bg-purple-200"
+              >
+                Tell Me 🤭
+              </button>
 
-/* MOBILE BUTTON */
+              <button
+                onClick={nextStep}
+                className="btn h-14 rounded-2xl border-0 bg-rose-100 text-rose-600 hover:bg-rose-200"
+              >
+                Really? ❤️
+              </button>
 
-function Bottom({ icon, text }) {
-  return (
-    <button className="py-2 flex flex-col items-center gap-1 text-xs text-slate-500 hover:text-blue-600">
-      <span className="text-base">{icon}</span>
-      {text}
-    </button>
+            </div>
+
+          </div>
+
+        </section>
+      )}
+
+      {/* ================= STEP 2 ================= */}
+
+      {step === 2 && (
+        <section className="flex min-h-screen items-center justify-center px-5">
+
+          <div className="w-full max-w-xl rounded-[2rem] bg-white/90 p-8 text-center shadow-2xl backdrop-blur-md sm:p-12">
+
+            <FaStar className="mx-auto mb-6 text-5xl text-yellow-400" />
+
+            <p className="mb-3 text-sm font-bold uppercase tracking-widest text-pink-400">
+              Something From My Heart
+            </p>
+
+            <h2 className="mb-6 text-3xl font-bold sm:text-4xl">
+              Let me tell you...
+            </h2>
+
+            <p className="mb-8 text-lg leading-9 text-gray-600">
+              Every conversation with you,
+              <br />
+              every smile,
+              <br />
+              every little moment...
+              <br />
+              somehow became precious to me. 💕
+            </p>
+
+            <div className="rounded-3xl bg-gradient-to-r from-pink-100 to-purple-100 p-6">
+
+              <p className="font-medium leading-8 text-gray-700">
+                You make ordinary moments feel special.
+                <br />
+                And honestly...
+                <br />
+                I don't want to lose that feeling. ❤️
+              </p>
+
+            </div>
+
+            <button
+              onClick={nextStep}
+              className="btn mt-8 rounded-full border-0 bg-pink-500 px-8 text-white hover:bg-pink-600"
+            >
+              Continue ❤️
+              <FaArrowRight />
+            </button>
+
+          </div>
+
+        </section>
+      )}
+
+      {/* ================= STEP 3 ================= */}
+
+      {step === 3 && (
+        <section className="flex min-h-screen items-center justify-center px-5">
+
+          <div className="w-full max-w-xl rounded-[2rem] bg-white/90 p-8 text-center shadow-2xl backdrop-blur-md sm:p-12">
+
+            <FaGift className="mx-auto mb-6 text-5xl text-pink-500" />
+
+            <p className="mb-3 text-sm font-bold uppercase tracking-widest text-pink-400">
+              One Important Question
+            </p>
+
+            <h2 className="mb-6 text-3xl font-bold sm:text-4xl">
+              Are you ready?
+            </h2>
+
+            <p className="mb-8 text-lg leading-8 text-gray-600">
+              Because there is something
+              <br />
+              I have wanted to say for a while... 🥺
+            </p>
+
+            <button
+              onClick={nextStep}
+              className="btn h-14 w-full rounded-full border-0 bg-pink-500 text-white shadow-lg hover:bg-pink-600"
+            >
+              Tell Me ❤️
+              <FaArrowRight />
+            </button>
+
+          </div>
+
+        </section>
+      )}
+
+      {/* ================= STEP 4 ================= */}
+
+      {step === 4 && (
+        <section className="flex min-h-screen items-center justify-center px-5">
+
+          <div className="w-full max-w-2xl rounded-[2rem] bg-white/90 p-8 text-center shadow-2xl backdrop-blur-md sm:p-12">
+
+            <div className="mb-6 text-6xl">
+              🥺❤️
+            </div>
+
+            <p className="mb-3 text-sm font-bold uppercase tracking-[4px] text-pink-500">
+              From My Heart
+            </p>
+
+            <h1 className="mb-6 text-4xl font-bold text-gray-800 sm:text-6xl">
+              Will You Be Mine? 💍
+            </h1>
+
+            <p className="mx-auto mb-8 max-w-lg text-lg leading-9 text-gray-600">
+              Not just for today.
+              <br />
+              Not just for a moment.
+              <br />
+              But for all the beautiful moments
+              <br />
+              waiting for us. ❤️
+            </p>
+
+            <div className="grid gap-4">
+
+              <button
+                onClick={nextStep}
+                className="btn h-16 rounded-2xl border-0 bg-pink-500 text-lg text-white shadow-lg hover:bg-pink-600"
+              >
+                YES ❤️
+              </button>
+
+              <button
+                onClick={nextStep}
+                className="btn h-16 rounded-2xl border-0 bg-rose-100 text-lg text-pink-600 hover:bg-rose-200"
+              >
+                YES, OF COURSE 🥰
+              </button>
+
+              <button
+                onClick={nextStep}
+                className="btn h-14 rounded-2xl border-0 bg-purple-100 text-purple-600 hover:bg-purple-200"
+              >
+                Let Me Think 🤭
+              </button>
+
+            </div>
+
+          </div>
+
+        </section>
+      )}
+
+      {/* ================= FINAL PAGE ================= */}
+
+      {step === 5 && (
+        <section className="min-h-screen px-5 py-12">
+
+          <div className="mx-auto max-w-4xl">
+
+            {/* SUCCESS */}
+
+            <div className="rounded-[2rem] bg-white/90 p-8 text-center shadow-2xl backdrop-blur-md sm:p-12">
+
+              <FaRing className="mx-auto mb-6 text-6xl text-pink-500 animate-pulse" />
+
+              <p className="mb-3 text-sm font-bold uppercase tracking-[4px] text-pink-500">
+                My Favourite Answer
+              </p>
+
+              <h1 className="mb-6 text-4xl font-bold text-pink-600 sm:text-6xl">
+                You Said YES! ❤️
+              </h1>
+
+              <p className="mx-auto max-w-2xl text-lg leading-9 text-gray-600">
+                And just like that...
+                <br />
+                you made my heart a little happier.
+                <br />
+                I hope this is only the beginning
+                <br />
+                of our beautiful story. 🥰
+              </p>
+
+            </div>
+
+            {/* ================= DUO PHOTO ================= */}
+
+            <div className="mt-8 rounded-[2rem] bg-white/90 p-6 shadow-2xl backdrop-blur-md sm:p-10">
+
+              <div className="mb-8 text-center">
+
+                <FaCamera className="mx-auto mb-3 text-3xl text-pink-500" />
+
+                <h2 className="text-3xl font-bold text-gray-800 sm:text-4xl">
+                  Our Little World ❤️
+                </h2>
+
+                <p className="mt-2 text-gray-500">
+                  One picture. One beautiful memory. 💕
+                </p>
+
+              </div>
+
+              {/* YOUR DUO PHOTO */}
+
+              <div className="mx-auto max-w-2xl overflow-hidden rounded-3xl bg-gradient-to-br from-pink-100 to-purple-100 p-3 shadow-xl">
+
+                <div className="overflow-hidden rounded-2xl">
+
+                  <img
+                    src="/images/us.jpg"
+                    alt="Me and My Favourite Person"
+                    className="h-[420px] w-full object-cover transition duration-700 hover:scale-105 sm:h-[600px]"
+                  />
+
+                </div>
+
+                <div className="py-5 text-center">
+
+                  <p className="text-2xl font-bold text-pink-600">
+                    Me & You ❤️
+                  </p>
+
+                  <p className="mt-2 text-sm text-gray-500">
+                    One heart, two people, countless memories. 🥰
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            {/* ================= LOVE MESSAGE ================= */}
+
+            <div className="mt-8 rounded-[2rem] bg-gradient-to-br from-pink-500 to-purple-500 p-8 text-center text-white shadow-2xl sm:p-12">
+
+              <FaRegHeart className="mx-auto mb-6 text-5xl" />
+
+              <h2 className="mb-6 text-3xl font-bold sm:text-4xl">
+                My Promise To You
+              </h2>
+
+              <p className="mx-auto max-w-2xl text-base leading-9 text-white/90 sm:text-lg">
+                I cannot promise that every day will be perfect.
+                But I can promise that I will always value you,
+                respect you, support you, and cherish every beautiful
+                moment we get to share together.
+              </p>
+
+              <div className="my-8 h-px bg-white/30" />
+
+              <p className="text-3xl font-bold">
+                You & Me ❤️
+              </p>
+
+              <p className="mt-3 text-white/70">
+                Maybe this is where our beautiful story begins...
+              </p>
+
+            </div>
+
+            {/* ================= FINAL HEART ================= */}
+
+            <div className="py-12 text-center">
+
+              <div className="mb-4 text-5xl animate-pulse">
+                ❤️
+              </div>
+
+              <p className="text-sm text-gray-400">
+                Made especially for you
+              </p>
+
+            </div>
+
+          </div>
+
+        </section>
+      )}
+
+    </main>
   );
 }
